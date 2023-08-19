@@ -1,0 +1,75 @@
+#First time trying to create some series and play around with them#
+>>> Import pandas as pd
+>>> D=pd.Series(['Base 10x10','Tampo 10x10','Face lateral 10x18','Base 20x20','Tampo 20x20','Face lateral 10x20','Face lateral 10x25','Face lateral 10x30','Face lateral 10x45','Face lateral 10x60'], index=['A','B','C','D','E','F','G','H','I','J'],name= 'Product Description')
+>>> C=pd.Series([12,15,10,8,14,12,16,18,25,30], index=['A','B','C','D','E','F','G','H','I','J'],name= 'Cost')
+>>> P=pd.Series([18,17,15,10,16,16,23,24,30,35], index=['A','B','C','D','E','F','G','H','I','J'],name= 'Price')
+
+>>> D.head()
+A            Base 10x10
+B           Tampo 10x10
+C    Face lateral 10x18
+D            Base 20x20
+E           Tampo 20x20
+Name: Product Description, dtype: object
+
+>>> C.head()
+A    12
+B    15
+C    10
+D     8
+E    14
+Name: Cost, dtype: int64
+
+>>> P.head()
+A    18
+B    17
+C    15
+D    10
+E    16
+Name: Price, dtype: int64
+
+>> P.describe()
+count    10.000000
+mean     20.400000
+std       7.589466
+min      10.000000
+25%      16.000000
+50%      17.500000
+75%      23.750000
+max      35.000000
+Name: Price, dtype: float64
+
+>>> C.describe()
+count    10.000000
+mean     16.000000
+std       6.815016
+min       8.000000
+25%      12.000000
+50%      14.500000
+75%      17.500000
+max      30.000000
+Name: Cost, dtype: float64
+
+#What is the description of most expensive item that the store sells?#
+>>> P.sort_values()
+D    10
+C    15
+E    16
+F    16
+B    17
+A    18
+G    23
+H    24
+I    30
+J    35
+Name: Price, dtype: int64
+
+>>> D.loc[['J']]
+J    Face lateral 10x60
+Name: Product Description, dtype: object
+
+#And the least expensive?#
+>>> D.loc[['D']]
+D    Base 20x20
+Name: Product Description, dtype: object
+
